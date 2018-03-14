@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 import UsersModel from '../user.schema';
 import logger from '../../../helpers/logger.helper';
 import { config } from '../../../config';
-import { isValidArrayId } from '../../../helpers/request.helper';
 import { AuthService } from './auth.service';
 
 const randomstring = require('randomstring');
