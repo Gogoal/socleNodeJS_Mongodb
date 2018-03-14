@@ -11,5 +11,5 @@ export const config = {
 // Mail Wesport
 export const mailConfig = {
   mail: 'mettreUneAdresseMail.com',
-  password: 'mdpMail',
+  password: 'mdr',
 };
