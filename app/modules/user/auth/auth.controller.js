@@ -25,7 +25,6 @@ function generateToken(user) {
  * @apiParam {String} firstName   firstName of the User.
  * @apiParam {String} email     email of the User.
  * @apiParam {Date} birthdate     birthdate of the User.
- * @apiParam {Object} sports     Array of sport objectId of the User.
  * @apiParam {Gender} gender     gender of the User.
  * @apiParam {String} password password (not Hash) of the User.
  * @apiParam {String} facebookId facebookId of the User (if exist).
@@ -50,14 +49,6 @@ export function register(req, res) {
       const hashedPassword = bcrypt.hashSync(req.body.password, 8);
       const generateTokenVerification = randomstring.generate({ length: 12, charset: 'alphabetic' }); // Generate a validation token
 
-      // We test if req.body.sport is a valid array of object id
-      if (!isValidArrayId(req.body.sports)) {
-        return res.status(400).send({
-          success: false,
-          err: "Le format de l'id sport n'est pas correct",
-        });
-      }
-
       // WE CREATE USER
       UsersModel.create(
         {
@@ -65,7 +56,6 @@ export function register(req, res) {
           firstName: req.body.firstName,
           email: req.body.email,
           birthdate: req.body.birthdate,
-          sports: req.body.sports,
           gender: req.body.gender,
           password: hashedPassword,
           validateToken: generateTokenVerification,
@@ -75,10 +65,6 @@ export function register(req, res) {
 
           logger.debug(`User created. Id user ${userCreate.id}`);
 
-          // Add a test for the mail
-          if (AuthService.sendConfirmationMail(req.body.email, generateTokenVerification)) {
-            return res.status(200).send(generateToken(userCreate));
-          }
           return res.status(200).send(generateToken(userCreate)); // TODO Deal with email error
           // For now, we create the user even if there is a problem in the sending of the mail
         },

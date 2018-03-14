@@ -18,13 +18,6 @@ const userSchema = new Schema(
     birthdate: {
       type: Date,
     },
-    sports: [{
-      // Specify the type objectId for mongo
-      type: Schema.Types.ObjectId,
-      // Link to sport model
-      ref: 'Sports',
-      required: 'Merci de renseigner un sport',
-    }],
     gender: {
       type: String,
       required: 'Merci de renseigner votre genre.',
