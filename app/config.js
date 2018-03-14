@@ -5,7 +5,7 @@ export const config = {
   dbDev: 'mongodb://localhost:27017/socleMongo',
   dbTest: 'mongodb://localhost:27017/testSocleMongo',
   apiLocal: 'http://localhost:3000',
-  apiProd: 'https://afternoon-dawn-41835.herokuapp.com/',
+  apiProd: 'https://afternoon-dawn-41835.herokuapp.com',
 };
 
 // Mail Wesport
