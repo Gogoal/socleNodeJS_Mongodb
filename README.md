@@ -1,4 +1,4 @@
-# WE SPORT - REST API
+# SOCLE NODE.JS ET MONGODB - REST API
 ## Technologies
 * NodeJS
 * Mongoose
@@ -8,15 +8,13 @@
 
 ## Installation and use
 * Clone the project
-* Install mongodDB and create bd : wesport. (You should launch mondog.exe)
+* Install mongodDB and create bd : socleMongo. (You should launch mondog.exe)
 * npm install
 * npm start, just lauch the server
 * npm run watch, for dev
-* 
 
 ## Informations
 #### Integration serveur :
-https://rest-api-wesport.herokuapp.com
 
 #### BDD Mongodb :
 https://mlab.com/home
